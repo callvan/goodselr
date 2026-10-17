@@ -553,7 +553,7 @@ const model = document.getElementById('car-model').value;
                         `⏰ 접수시간: ${new Date().toLocaleString('ko-KR')}`;
 
     // 텔레그램 API 호출
-    fetch('https://api.telegram.org/bot8756534033:AAEOTlEgZMIEQy9sMZVzhdxZB6JhyT58Y94/sendMessage', {
+    fetch('https://api.telegram.org/bot8532702208:AAHvaKZ_ioPnRiOi16EtgNuo6RDjCgK9iz4/sendMessage', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -561,6 +561,7 @@ const model = document.getElementById('car-model').value;
         text: textMessage
       })
     })
+      
     .then(response => response.json())
     .then(data => {
       if (data.ok) {
