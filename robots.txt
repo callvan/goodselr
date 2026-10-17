@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://callvan.github.io/goodselr/sitemap.xml
