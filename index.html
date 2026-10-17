@@ -529,13 +529,53 @@
   </div>
 
   <script>
-    document.getElementById('quote-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const model = document.getElementById('car-model').value;
-      const phone = document.getElementById('car-phone').value;
-      alert(`[견적 접수 완료]\n차종: ${model}\n연락처: ${phone}\n\n신속히 최고가 견적을 확인하여 바로 연락드리겠습니다.\n(직통 문의: 010-4313-4005)`);
-      window.location.href = 'tel:010-4313-4005';
+   <script>
+  // 1. 발급받은 봇 토큰과 숫자 ID 입력
+  const TELEGRAM_BOT_TOKEN = 'YOUR_TELEGRAM_BOT_TOKEN'; // 예: 7123456789:AAFn...
+  const TELEGRAM_CHAT_ID = 'YOUR_TELEGRAM_CHAT_ID';     // 예: 1234567890
+
+  document.getElementById('quote-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+const model = document.getElementById('car-model').value;
+    const year = document.getElementById('car-year').value || '미입력';
+    const mileage = document.getElementById('car-mileage').value || '미입력';
+    const location = document.getElementById('car-location').value || '미입력';
+    const phone = document.getElementById('car-phone').value;
+
+    // 텔레그램으로 전송될 메시지 서식 구성
+    const textMessage = `🔔 [신규 중고차 수출 견적 접수]\n\n` +
+                        `🚗 차종: ${model}\n` +
+                        `📅 연식: ${year}\n` +
+                        `🛣️ 주행거리: ${mileage}\n` +
+                        `📍 지역: ${location}\n` +
+                        `📞 연락처: ${phone}\n\n` +
+                        `⏰ 접수시간: ${new Date().toLocaleString('ko-KR')}`;
+
+    // 텔레그램 API 호출
+    fetch('https://api.telegram.org/bot8756534033:AAEOTlEgZMIEQy9sMZVzhdxZB6JhyT58Y94/sendMessage', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        chat_id: '7190006798',
+        text: textMessage
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.ok) {
+        alert('[견적 접수 완료]\n신속히 최고가 견적을 산정하여 전화드리겠습니다!\n(직통 문의: 010-4313-4005)');
+        document.getElementById('quote-form').reset();
+      } else {
+        alert('접수 처리 중 오류가 발생했습니다. 전화(010-4313-4005)로 바로 연락 부탁드립니다.');
+        console.error('Telegram Error:', data);
+      }
+    })
+    .catch(err => {
+      console.error('Fetch Error:', err);
+      alert('네트워크 오류가 발생했습니다. 직통 전화(010-4313-4005)로 문의해주세요.');
     });
-  </script>
+  });
+</script>
 </body>
 </html>
