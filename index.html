@@ -133,9 +133,23 @@
     </div>
   </section>
 
-  <!-- Hero Section -->
+  <!-- Hero Section with Background Image Slider -->
   <section class="relative bg-slate-900 text-white py-16 lg:py-24 overflow-hidden">
-    <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:16px_16px]"></div>
+    <!-- Background Moving Images Carousel -->
+    <div class="absolute inset-0 z-0 opacity-25">
+      <div id="hero-slider" class="relative w-full h-full overflow-hidden">
+        <div class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-100">
+          <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1600&q=80" alt="수출 선적 컨테이너 항만" class="w-full h-full object-cover">
+        </div>
+        <div class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-0">
+          <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1600&q=80" alt="수출 대기 SUV 차량" class="w-full h-full object-cover">
+        </div>
+        <div class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-0">
+          <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1600&q=80" alt="중고차 해외수출 세단" class="w-full h-full object-cover">
+        </div>
+      </div>
+      <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/90 to-slate-900/75"></div>
+    </div>
     
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
       <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
@@ -155,17 +169,17 @@
 
         <!-- 핵심 강조 포인트 3종 -->
         <div class="grid grid-cols-3 gap-3 pt-2 text-left">
-          <div class="p-3 bg-slate-800/80 rounded-xl border border-slate-700">
+          <div class="p-3 bg-slate-800/80 backdrop-blur-sm rounded-xl border border-slate-700">
             <div class="text-blue-400 font-black text-sm sm:text-base">100% 현장말소</div>
             <div class="text-[11px] sm:text-xs text-slate-400 mt-1">인천 탁송 후 감가 원천 차단</div>
           </div>
-          <div class="p-3 bg-slate-800/80 rounded-xl border border-slate-700">
+          <div class="p-3 bg-slate-800/80 backdrop-blur-sm rounded-xl border border-slate-700">
             <div class="text-amber-400 font-black text-sm sm:text-base">추후 감가 0원</div>
             <div class="text-[11px] sm:text-xs text-slate-400 mt-1">약속한 매입가 전액 즉시 송금</div>
           </div>
-          <div class="p-3 bg-slate-800/80 rounded-xl border border-slate-700">
+          <div class="p-3 bg-slate-800/80 backdrop-blur-sm rounded-xl border border-slate-700">
             <div class="text-emerald-400 font-black text-sm sm:text-base">주행거리 무관</div>
-            <div class="text-[11px] sm:text-xs text-slate-400 mt-1">20만~40만 km도 최고가 매입</div>
+            <div class="text-[11px] sm:text-xs text-slate-400 mt-1">다주행·노후차도 최고가 매입</div>
           </div>
         </div>
 
@@ -174,7 +188,7 @@
             <i class="fa-solid fa-phone-volume text-lg"></i>
             <span>010-4313-4005 즉시 전화상담</span>
           </a>
-          <a href="#quick-quote" class="w-full sm:w-auto px-6 py-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-sm border border-slate-700 transition-colors text-center">
+          <a href="#quick-quote" class="w-full sm:w-auto px-6 py-4 rounded-xl bg-slate-800/90 hover:bg-slate-700 text-slate-200 font-bold text-sm border border-slate-700 transition-colors text-center">
             실시간 간편 견적조회 ↓
           </a>
         </div>
@@ -196,12 +210,12 @@
 
           <div class="grid grid-cols-2 gap-3">
             <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">연식</label>
+              <label class="block text-xs font-bold text-slate-700 mb-1">연식 (선택)</label>
               <input type="text" id="car-year" placeholder="예: 2012년식" class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600">
             </div>
             <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">주행거리</label>
-              <input type="text" id="car-mileage" placeholder="예: 24만 km" class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600">
+              <label class="block text-xs font-bold text-slate-700 mb-1">주행거리 (선택)</label>
+              <input type="text" id="car-mileage" placeholder="예: 주행거리 무관" class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600">
             </div>
           </div>
 
@@ -290,7 +304,7 @@
     </div>
   </section>
 
-  <!-- Real Price Cases -->
+  <!-- Real Price Cases (차량 이미지 포함 & 연식/키로수 삭제) -->
   <section id="price-cases" class="py-16 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-12">
@@ -302,78 +316,99 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         
         <!-- Case 1: 스포티지R -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 flex flex-col justify-between">
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 flex flex-col justify-between group hover:shadow-md transition-shadow">
           <div>
-            <div class="flex justify-between items-center mb-3">
-              <span class="font-black text-slate-900 text-lg">기아 스포티지 R</span>
-              <span class="text-xs bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full">당일말소 완료</span>
+            <div class="relative h-48 overflow-hidden bg-slate-200">
+              <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80" alt="기아 스포티지 R" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 right-3 text-xs bg-emerald-600 text-white font-bold px-2.5 py-1 rounded-full shadow">당일말소 완료</span>
             </div>
-            <p class="text-xs text-slate-500 mb-4">2012년식 · 디젤 2WD · 24만 km · 무사고 · 썬루프</p>
-            
-            <div class="space-y-2 py-3 border-y border-slate-100 text-xs">
-              <div class="flex justify-between text-slate-400">
-                <span>국내 매매상사(딜러) 견적</span>
-                <span class="line-through font-semibold">300만 원</span>
+            <div class="p-6 pb-2">
+              <div class="flex justify-between items-center mb-1">
+                <span class="font-black text-slate-900 text-lg">기아 스포티지 R</span>
               </div>
-              <div class="flex justify-between text-blue-700 font-extrabold text-sm pt-1">
-                <span>경남리버무역 수출매입가</span>
-                <span class="text-base text-blue-700">500만 원</span>
+              <p class="text-xs text-slate-500 mb-4">디젤 2WD · 무사고 · 썬루프</p>
+              
+              <div class="space-y-2 py-3 border-y border-slate-100 text-xs">
+                <div class="flex justify-between text-slate-400">
+                  <span>국내 매매상사(딜러) 견적</span>
+                  <span class="line-through font-semibold">300만 원</span>
+                </div>
+                <div class="flex justify-between text-blue-700 font-extrabold text-sm pt-1">
+                  <span>경남리버무역 수출매입가</span>
+                  <span class="text-base text-blue-700">500만 원</span>
+                </div>
               </div>
             </div>
           </div>
-          <div class="mt-4 pt-3 bg-blue-50/80 rounded-xl p-3 text-center">
-            <span class="text-xs font-bold text-blue-900">차주 이득: <strong class="text-blue-600 text-sm">+200만 원</strong> (현장 무감가)</span>
+          <div class="px-6 pb-6 pt-2">
+            <div class="bg-blue-50/80 rounded-xl p-3 text-center">
+              <span class="text-xs font-bold text-blue-900">차주 이득: <strong class="text-blue-600 text-sm">+200만 원</strong> (현장 무감가)</span>
+            </div>
           </div>
         </div>
 
         <!-- Case 2: 그랜져TG -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border-2 border-blue-500 flex flex-col justify-between relative">
-          <span class="absolute -top-3 left-6 bg-blue-600 text-white text-[10px] font-black px-2 py-0.5 rounded">인기 수출차종</span>
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border-2 border-blue-500 flex flex-col justify-between relative group hover:shadow-md transition-shadow">
           <div>
-            <div class="flex justify-between items-center mb-3 mt-1">
-              <span class="font-black text-slate-900 text-lg">현대 그랜져 TG</span>
-              <span class="text-xs bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full">당일말소 완료</span>
+            <div class="relative h-48 overflow-hidden bg-slate-200">
+              <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80" alt="현대 그랜져 TG" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 bg-blue-600 text-white text-[11px] font-black px-2.5 py-1 rounded-full shadow">인기 수출차종</span>
+              <span class="absolute top-3 right-3 text-xs bg-emerald-600 text-white font-bold px-2.5 py-1 rounded-full shadow">당일말소 완료</span>
             </div>
-            <p class="text-xs text-slate-500 mb-4">2008~2010년식 · 가솔린 2.7 / 3.3 · 21만 km</p>
-            
-            <div class="space-y-2 py-3 border-y border-slate-100 text-xs">
-              <div class="flex justify-between text-slate-400">
-                <span>국내 폐차비 / 상사 견적</span>
-                <span class="line-through font-semibold">120~180만 원</span>
+            <div class="p-6 pb-2">
+              <div class="flex justify-between items-center mb-1">
+                <span class="font-black text-slate-900 text-lg">현대 그랜져 TG</span>
               </div>
-              <div class="flex justify-between text-blue-700 font-extrabold text-sm pt-1">
-                <span>경남리버무역 수출매입가</span>
-                <span class="text-base text-blue-700">300만 원</span>
+              <p class="text-xs text-slate-500 mb-4">가솔린 2.7 / 3.3 · 스마트키 · 기본옵션</p>
+              
+              <div class="space-y-2 py-3 border-y border-slate-100 text-xs">
+                <div class="flex justify-between text-slate-400">
+                  <span>국내 폐차비 / 상사 견적</span>
+                  <span class="line-through font-semibold">120~180만 원</span>
+                </div>
+                <div class="flex justify-between text-blue-700 font-extrabold text-sm pt-1">
+                  <span>경남리버무역 수출매입가</span>
+                  <span class="text-base text-blue-700">300만 원</span>
+                </div>
               </div>
             </div>
           </div>
-          <div class="mt-4 pt-3 bg-blue-50/80 rounded-xl p-3 text-center">
-            <span class="text-xs font-bold text-blue-900">차주 이득: <strong class="text-blue-600 text-sm">+120만~180만 원</strong> (폐차 대비)</span>
+          <div class="px-6 pb-6 pt-2">
+            <div class="bg-blue-50/80 rounded-xl p-3 text-center">
+              <span class="text-xs font-bold text-blue-900">차주 이득: <strong class="text-blue-600 text-sm">+120만~180만 원</strong> (폐차 대비)</span>
+            </div>
           </div>
         </div>
 
         <!-- Case 3: 아반떼 HD / MD -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 flex flex-col justify-between">
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 flex flex-col justify-between group hover:shadow-md transition-shadow">
           <div>
-            <div class="flex justify-between items-center mb-3">
-              <span class="font-black text-slate-900 text-lg">현대 아반떼 HD / MD</span>
-              <span class="text-xs bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full">당일말소 완료</span>
+            <div class="relative h-48 overflow-hidden bg-slate-200">
+              <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=800&q=80" alt="현대 아반떼 HD / MD" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 right-3 text-xs bg-emerald-600 text-white font-bold px-2.5 py-1 rounded-full shadow">당일말소 완료</span>
             </div>
-            <p class="text-xs text-slate-500 mb-4">2009년식 · 가솔린 1.6 · 28만 km 다주행</p>
-            
-            <div class="space-y-2 py-3 border-y border-slate-100 text-xs">
-              <div class="flex justify-between text-slate-400">
-                <span>국내 매매상사 매입가</span>
-                <span class="line-through font-semibold">130만 원</span>
+            <div class="p-6 pb-2">
+              <div class="flex justify-between items-center mb-1">
+                <span class="font-black text-slate-900 text-lg">현대 아반떼 HD / MD</span>
               </div>
-              <div class="flex justify-between text-blue-700 font-extrabold text-sm pt-1">
-                <span>경남리버무역 수출매입가</span>
-                <span class="text-base text-blue-700">260만 원</span>
+              <p class="text-xs text-slate-500 mb-4">가솔린 1.6 · 외관 흠집 무관 매입</p>
+              
+              <div class="space-y-2 py-3 border-y border-slate-100 text-xs">
+                <div class="flex justify-between text-slate-400">
+                  <span>국내 매매상사 매입가</span>
+                  <span class="line-through font-semibold">130만 원</span>
+                </div>
+                <div class="flex justify-between text-blue-700 font-extrabold text-sm pt-1">
+                  <span>경남리버무역 수출매입가</span>
+                  <span class="text-base text-blue-700">260만 원</span>
+                </div>
               </div>
             </div>
           </div>
-          <div class="mt-4 pt-3 bg-blue-50/80 rounded-xl p-3 text-center">
-            <span class="text-xs font-bold text-blue-900">차주 이득: <strong class="text-blue-600 text-sm">+130만 원</strong> (주행거리 무관)</span>
+          <div class="px-6 pb-6 pt-2">
+            <div class="bg-blue-50/80 rounded-xl p-3 text-center">
+              <span class="text-xs font-bold text-blue-900">차주 이득: <strong class="text-blue-600 text-sm">+130만 원</strong> (주행거리 무관)</span>
+            </div>
           </div>
         </div>
 
@@ -381,55 +416,102 @@
     </div>
   </section>
 
-  <!-- Target Vehicles -->
+  <!-- Target Vehicles (차량 이미지 카드 포함 & 연식/키로수 언급 삭제) -->
   <section id="target-vehicles" class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-12">
         <h2 class="text-xs font-bold text-blue-600 tracking-widest uppercase mb-2">Main Export Models</h2>
         <p class="text-2xl sm:text-3xl font-black text-slate-900">현재 최고가 매입 중인 주력 차종</p>
-        <p class="text-slate-500 text-sm mt-3">키로수가 30만 km 이상이거나 외관 도색이 바래도 엔진/미션만 정상 작동하면 고가 매입합니다.</p>
+        <p class="text-slate-500 text-sm mt-3">주행거리가 많거나 외관 도색이 바래도 엔진/미션만 정상 작동하면 고가 매입합니다.</p>
       </div>
 
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-        <div class="p-4 rounded-xl border border-slate-200 hover:border-blue-500 transition-colors bg-slate-50/50">
-          <div class="text-blue-600 font-black text-sm">기아 SUV</div>
-          <div class="text-slate-900 font-bold mt-1">스포티지 R / 뉴스포티지</div>
-          <div class="text-xs text-slate-500 mt-1">쏘렌토R, 모하비 포함</div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+        <div class="rounded-xl border border-slate-200 hover:border-blue-500 transition-all bg-slate-50/50 overflow-hidden group shadow-sm">
+          <div class="h-32 bg-slate-200 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=600&q=80" alt="기아 SUV" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-4">
+            <div class="text-blue-600 font-black text-xs">기아 SUV</div>
+            <div class="text-slate-900 font-bold text-sm sm:text-base mt-0.5">스포티지 R / 뉴스포티지</div>
+            <div class="text-xs text-slate-500 mt-1">쏘렌토R, 모하비 포함</div>
+          </div>
         </div>
-        <div class="p-4 rounded-xl border border-slate-200 hover:border-blue-500 transition-colors bg-slate-50/50">
-          <div class="text-blue-600 font-black text-sm">현대 대형/중형</div>
-          <div class="text-slate-900 font-bold mt-1">그랜져 TG / HG</div>
-          <div class="text-xs text-slate-500 mt-1">수출가 300만 원 선 매입</div>
+
+        <div class="rounded-xl border border-slate-200 hover:border-blue-500 transition-all bg-slate-50/50 overflow-hidden group shadow-sm">
+          <div class="h-32 bg-slate-200 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=600&q=80" alt="현대 대형/중형" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-4">
+            <div class="text-blue-600 font-black text-xs">현대 대형/중형</div>
+            <div class="text-slate-900 font-bold text-sm sm:text-base mt-0.5">그랜져 TG / HG</div>
+            <div class="text-xs text-slate-500 mt-1">수출가 300만 원 선 매입</div>
+          </div>
         </div>
-        <div class="p-4 rounded-xl border border-slate-200 hover:border-blue-500 transition-colors bg-slate-50/50">
-          <div class="text-blue-600 font-black text-sm">현대 준중형</div>
-          <div class="text-slate-900 font-bold mt-1">아반떼 HD / MD / XD</div>
-          <div class="text-xs text-slate-500 mt-1">해외 바이어 상시 선호 1위</div>
+
+        <div class="rounded-xl border border-slate-200 hover:border-blue-500 transition-all bg-slate-50/50 overflow-hidden group shadow-sm">
+          <div class="h-32 bg-slate-200 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=600&q=80" alt="현대 준중형" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-4">
+            <div class="text-blue-600 font-black text-xs">현대 준중형</div>
+            <div class="text-slate-900 font-bold text-sm sm:text-base mt-0.5">아반떼 HD / MD / XD</div>
+            <div class="text-xs text-slate-500 mt-1">해외 바이어 상시 선호 1위</div>
+          </div>
         </div>
-        <div class="p-4 rounded-xl border border-slate-200 hover:border-blue-500 transition-colors bg-slate-50/50">
-          <div class="text-blue-600 font-black text-sm">현대 SUV</div>
-          <div class="text-slate-900 font-bold mt-1">투싼 ix / 싼타페 CM·DM</div>
-          <div class="text-xs text-slate-500 mt-1">파노라마 썬루프 우대</div>
+
+        <div class="rounded-xl border border-slate-200 hover:border-blue-500 transition-all bg-slate-50/50 overflow-hidden group shadow-sm">
+          <div class="h-32 bg-slate-200 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80" alt="현대 SUV" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-4">
+            <div class="text-blue-600 font-black text-xs">현대 SUV</div>
+            <div class="text-slate-900 font-bold text-sm sm:text-base mt-0.5">투싼 ix / 싼타페 CM·DM</div>
+            <div class="text-xs text-slate-500 mt-1">파노라마 썬루프 우대</div>
+          </div>
         </div>
-        <div class="p-4 rounded-xl border border-slate-200 hover:border-blue-500 transition-colors bg-slate-50/50">
-          <div class="text-blue-600 font-black text-sm">기아 준중형/중형</div>
-          <div class="text-slate-900 font-bold mt-1">포르테 / K3 / K5</div>
-          <div class="text-xs text-slate-500 mt-1">가솔린 엔진 최고가 우대</div>
+
+        <div class="rounded-xl border border-slate-200 hover:border-blue-500 transition-all bg-slate-50/50 overflow-hidden group shadow-sm">
+          <div class="h-32 bg-slate-200 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=600&q=80" alt="기아 준중형/중형" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-4">
+            <div class="text-blue-600 font-black text-xs">기아 준중형/중형</div>
+            <div class="text-slate-900 font-bold text-sm sm:text-base mt-0.5">포르테 / K3 / K5</div>
+            <div class="text-xs text-slate-500 mt-1">가솔린 엔진 최고가 우대</div>
+          </div>
         </div>
-        <div class="p-4 rounded-xl border border-slate-200 hover:border-blue-500 transition-colors bg-slate-50/50">
-          <div class="text-blue-600 font-black text-sm">승합 / 화물</div>
-          <div class="text-slate-900 font-bold mt-1">스타렉스 / 포터2 / 봉고3</div>
-          <div class="text-xs text-slate-500 mt-1">수동/오토 전 차종 매입</div>
+
+        <div class="rounded-xl border border-slate-200 hover:border-blue-500 transition-all bg-slate-50/50 overflow-hidden group shadow-sm">
+          <div class="h-32 bg-slate-200 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=600&q=80" alt="승합 / 화물" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-4">
+            <div class="text-blue-600 font-black text-xs">승합 / 화물</div>
+            <div class="text-slate-900 font-bold text-sm sm:text-base mt-0.5">스타렉스 / 포터2 / 봉고3</div>
+            <div class="text-xs text-slate-500 mt-1">수동/오토 전 차종 매입</div>
+          </div>
         </div>
-        <div class="p-4 rounded-xl border border-slate-200 hover:border-blue-500 transition-colors bg-slate-50/50">
-          <div class="text-blue-600 font-black text-sm">소형 / 경차</div>
-          <div class="text-slate-900 font-bold mt-1">모닝 / 프라이드 / 베르나</div>
-          <div class="text-xs text-slate-500 mt-1">폐차비의 2~3배 보장</div>
+
+        <div class="rounded-xl border border-slate-200 hover:border-blue-500 transition-all bg-slate-50/50 overflow-hidden group shadow-sm">
+          <div class="h-32 bg-slate-200 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=600&q=80" alt="소형 / 경차" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-4">
+            <div class="text-blue-600 font-black text-xs">소형 / 경차</div>
+            <div class="text-slate-900 font-bold text-sm sm:text-base mt-0.5">모닝 / 프라이드 / 베르나</div>
+            <div class="text-xs text-slate-500 mt-1">폐차비의 2~3배 보장</div>
+          </div>
         </div>
-        <div class="p-4 rounded-xl border border-slate-200 hover:border-blue-500 transition-colors bg-slate-50/50">
-          <div class="text-blue-600 font-black text-sm">기타 차종</div>
-          <div class="text-slate-900 font-bold mt-1">SM3 / SM5 / 라세티</div>
-          <div class="text-xs text-slate-500 mt-1">전화로 1분 만에 시세 확인</div>
+
+        <div class="rounded-xl border border-slate-200 hover:border-blue-500 transition-all bg-slate-50/50 overflow-hidden group shadow-sm">
+          <div class="h-32 bg-slate-200 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=600&q=80" alt="기타 차종" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-4">
+            <div class="text-blue-600 font-black text-xs">기타 차종</div>
+            <div class="text-slate-900 font-bold text-sm sm:text-base mt-0.5">SM3 / SM5 / 라세티</div>
+            <div class="text-xs text-slate-500 mt-1">전화로 1분 만에 시세 확인</div>
+          </div>
         </div>
       </div>
     </div>
@@ -445,24 +527,24 @@
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="bg-white p-6 rounded-2xl border border-slate-200 relative">
-          <span class="text-3xl font-black text-blue-200">01</span>
-          <h3 class="font-bold text-slate-900 text-base mt-2">전화 및 간편 견적</h3>
-          <p class="text-xs text-slate-500 mt-2 leading-relaxed">차종, 연식, 사고유무를 말씀해주시면 실시간 바이어 직결 시세를 즉시 산정합니다.</p>
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 relative shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-black text-lg mb-3">01</div>
+          <h3 class="font-bold text-slate-900 text-base">전화 및 간편 견적</h3>
+          <p class="text-xs text-slate-500 mt-2 leading-relaxed">차종과 차량 상태를 말씀해주시면 실시간 바이어 직결 시세를 즉시 산정합니다.</p>
         </div>
-        <div class="bg-white p-6 rounded-2xl border border-slate-200 relative">
-          <span class="text-3xl font-black text-blue-200">02</span>
-          <h3 class="font-bold text-slate-900 text-base mt-2">무료 출장 검차</h3>
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 relative shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-black text-lg mb-3">02</div>
+          <h3 class="font-bold text-slate-900 text-base">무료 출장 검차</h3>
           <p class="text-xs text-slate-500 mt-2 leading-relaxed">부산, 김해, 창원, 양산 등 차주님이 계신 곳으로 전문 감정사가 직접 방문합니다.</p>
         </div>
-        <div class="bg-white p-6 rounded-2xl border border-slate-200 relative">
-          <span class="text-3xl font-black text-blue-200">03</span>
-          <h3 class="font-bold text-slate-900 text-base mt-2">대금 전액 즉시 송금</h3>
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 relative shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-black text-lg mb-3">03</div>
+          <h3 class="font-bold text-slate-900 text-base">대금 전액 즉시 송금</h3>
           <p class="text-xs text-slate-500 mt-2 leading-relaxed">현장에서 합의된 금액을 감가 없이 전액 차주님 계좌로 즉시 현장 이체합니다.</p>
         </div>
-        <div class="bg-white p-6 rounded-2xl border border-slate-200 relative">
-          <span class="text-3xl font-black text-blue-200">04</span>
-          <h3 class="font-bold text-slate-900 text-base mt-2">당일 수출말소증 발급</h3>
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 relative shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-black text-lg mb-3">04</div>
+          <h3 class="font-bold text-slate-900 text-base">당일 수출말소증 발급</h3>
           <p class="text-xs text-slate-500 mt-2 leading-relaxed">관할 구청/차량등록사업소에서 당일 수출말소 완료 후 말소증을 전송해 보험을 해지합니다.</p>
         </div>
       </div>
@@ -525,6 +607,20 @@
   </div>
 
   <script>
+    // 배경 슬라이드 애니메이션
+    const slides = document.querySelectorAll('.hero-slide');
+    let currentSlide = 0;
+    if (slides.length > 0) {
+      setInterval(() => {
+        slides[currentSlide].classList.remove('opacity-100');
+        slides[currentSlide].classList.add('opacity-0');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.remove('opacity-0');
+        slides[currentSlide].classList.add('opacity-100');
+      }, 4500);
+    }
+
+    // 텔레그램 실시간 견적 폼 전송
     document.getElementById('quote-form').addEventListener('submit', function(e) {
       e.preventDefault();
 
@@ -534,7 +630,6 @@
       const location = document.getElementById('car-location').value || '미입력';
       const phone = document.getElementById('car-phone').value;
 
-      // 텔레그램으로 전송될 메시지 서식 구성
       const textMessage = `🔔 [신규 중고차 수출 견적 접수]\n\n` +
                           `🚗 차종: ${model}\n` +
                           `📅 연식: ${year}\n` +
@@ -543,7 +638,6 @@
                           `📞 연락처: ${phone}\n\n` +
                           `⏰ 접수시간: ${new Date().toLocaleString('ko-KR')}`;
 
-      // 텔레그램 API 호출
       fetch('https://api.telegram.org/bot8532702208:AAHvaKZ_ioPnRiOi16EtgNuo6RDjCgK9iz4/sendMessage', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
