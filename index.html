@@ -65,6 +65,20 @@
     .pulse-cta {
       animation: pulse-subtle 2.5s infinite;
     }
+
+    /* 무한 가로 슬라이드 애니메이션 (마우스 오버 시 일시정지) */
+    @keyframes marquee-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .gallery-marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee-scroll 32s linear infinite;
+    }
+    .gallery-marquee-track:hover {
+      animation-play-state: paused;
+    }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-blue-600 selection:text-white pb-20 md:pb-0">
@@ -103,6 +117,7 @@
       <!-- Desktop Nav Links -->
       <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-600">
         <a href="#quick-quote" class="hover:text-blue-600 transition-colors">실시간 견적신청</a>
+        <a href="#export-gallery" class="hover:text-blue-600 transition-colors">수출현장 갤러리</a>
         <a href="#why-local" class="hover:text-blue-600 transition-colors">왜 경남 로컬인가?</a>
         <a href="#price-cases" class="hover:text-blue-600 transition-colors">실제 매입사례</a>
         <a href="#target-vehicles" class="hover:text-blue-600 transition-colors">주력 수출차종</a>
@@ -142,10 +157,10 @@
           <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1600&q=80" alt="수출 선적 컨테이너 항만" class="w-full h-full object-cover">
         </div>
         <div class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-0">
-          <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1600&q=80" alt="수출 대기 SUV 차량" class="w-full h-full object-cover">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/2010_Kia_Sportage_(SL)_Si_wagon_(2011-11-18)_01.jpg?width=1600" alt="수출 대기 스포티지R 차량" class="w-full h-full object-cover">
         </div>
         <div class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-0">
-          <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1600&q=80" alt="중고차 해외수출 세단" class="w-full h-full object-cover">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/2011_Hyundai_Elantra_GLS_--_06-24-2011.jpg?width=1600" alt="중고차 해외수출 세단" class="w-full h-full object-cover">
         </div>
       </div>
       <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/90 to-slate-900/75"></div>
@@ -238,6 +253,138 @@
     </div>
   </section>
 
+  <!-- ==================== REAL EXPORT GALLERY (무한 가로 슬라이드 섹션) ==================== -->
+  <section id="export-gallery" class="py-12 bg-[#0b1120] border-y border-slate-800 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+      <div>
+        <span class="text-[11px] font-extrabold text-sky-400 tracking-widest uppercase block">REAL EXPORT GALLERY</span>
+        <h2 class="text-xl sm:text-2xl font-black text-white mt-1">경남리버무역 실제 수출 현장 & 매입 차량 갤러리</h2>
+      </div>
+      <div class="text-xs text-slate-400 flex items-center gap-1.5">
+        <span class="text-sky-400">↔</span> 마우스를 올리면 슬라이드가 일시정지됩니다
+      </div>
+    </div>
+
+    <!-- 가로 무한 롤링 컨테이너 -->
+    <div class="relative w-full overflow-hidden">
+      <div class="gallery-marquee-track gap-5 px-4">
+        
+        <!-- ===== 첫 번째 세트 (4개 카드) ===== -->
+        <!-- Slide 1: 경남리버무역 수출차량 -->
+        <div class="w-72 sm:w-80 flex-shrink-0 bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 hover:border-blue-500/60 transition-all shadow-lg">
+          <div class="relative h-44 bg-slate-800 overflow-hidden">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/2010_Kia_Sportage_(SL)_Si_wagon_(2011-11-18)_01.jpg?width=800" 
+                 onerror="this.src='https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80'" 
+                 alt="경남리버무역 수출차량" class="w-full h-full object-cover">
+            <span class="absolute top-3 left-3 bg-blue-600 text-white text-[11px] font-extrabold px-2.5 py-1 rounded-md shadow">공식 매입안내</span>
+          </div>
+          <div class="p-4">
+            <h3 class="text-amber-400 font-extrabold text-sm">경남리버무역 수출차량</h3>
+            <p class="text-slate-400 text-xs mt-1">스포티지R, 쏘나타, K5, 그랜저TG 등</p>
+          </div>
+        </div>
+
+        <!-- Slide 2: 부산항 항만 카캐리어 이동 -->
+        <div class="w-72 sm:w-80 flex-shrink-0 bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 hover:border-blue-500/60 transition-all shadow-lg">
+          <div class="relative h-44 bg-slate-800 overflow-hidden">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Car_transporter_in_Korea.jpg?width=800" 
+                 onerror="this.src='https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80'" 
+                 alt="부산항 항만 카캐리어 이동" class="w-full h-full object-cover">
+            <span class="absolute top-3 left-3 bg-emerald-500 text-white text-[11px] font-extrabold px-2.5 py-1 rounded-md shadow">경남 전지역 탁송</span>
+          </div>
+          <div class="p-4">
+            <h3 class="text-amber-400 font-extrabold text-sm">부산항 항만 카캐리어 이동</h3>
+            <p class="text-slate-400 text-xs mt-1">안전한 전용 캐리어 차량 탁송</p>
+          </div>
+        </div>
+
+        <!-- Slide 3: 11년식 이상 스포티지R -->
+        <div class="w-72 sm:w-80 flex-shrink-0 bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 hover:border-blue-500/60 transition-all shadow-lg">
+          <div class="relative h-44 bg-slate-800 overflow-hidden">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kia_Sportage_SL_front_20100911.jpg?width=800" 
+                 onerror="this.src='https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=800&q=80'" 
+                 alt="11년식 이상 스포티지R" class="w-full h-full object-cover">
+            <span class="absolute top-3 left-3 bg-amber-500 text-slate-950 text-[11px] font-extrabold px-2.5 py-1 rounded-md shadow">주력 매입</span>
+          </div>
+          <div class="p-4">
+            <h3 class="text-amber-400 font-extrabold text-sm">11년식 이상 스포티지R</h3>
+            <p class="text-slate-400 text-xs mt-1">중동/아프리카 수출 바이어 선호 1위</p>
+          </div>
+        </div>
+
+        <!-- Slide 4: 선적 대기 전용 야드 -->
+        <div class="w-72 sm:w-80 flex-shrink-0 bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 hover:border-blue-500/60 transition-all shadow-lg">
+          <div class="relative h-44 bg-slate-800 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80" 
+                 alt="선적 대기 전용 야드" class="w-full h-full object-cover">
+            <span class="absolute top-3 left-3 bg-indigo-600 text-white text-[11px] font-extrabold px-2.5 py-1 rounded-md shadow">직수출 항만</span>
+          </div>
+          <div class="p-4">
+            <h3 class="text-amber-400 font-extrabold text-sm">선적 대기 전용 야드</h3>
+            <p class="text-slate-400 text-xs mt-1">중간 마진 없는 다이렉트 해외 수출</p>
+          </div>
+        </div>
+
+        <!-- ===== 무한 루프용 복제 세트 (4개 카드) ===== -->
+        <!-- Slide 1 (복제) -->
+        <div class="w-72 sm:w-80 flex-shrink-0 bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 hover:border-blue-500/60 transition-all shadow-lg">
+          <div class="relative h-44 bg-slate-800 overflow-hidden">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/2010_Kia_Sportage_(SL)_Si_wagon_(2011-11-18)_01.jpg?width=800" 
+                 onerror="this.src='https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80'" 
+                 alt="경남리버무역 수출차량" class="w-full h-full object-cover">
+            <span class="absolute top-3 left-3 bg-blue-600 text-white text-[11px] font-extrabold px-2.5 py-1 rounded-md shadow">공식 매입안내</span>
+          </div>
+          <div class="p-4">
+            <h3 class="text-amber-400 font-extrabold text-sm">경남리버무역 수출차량</h3>
+            <p class="text-slate-400 text-xs mt-1">스포티지R, 쏘나타, K5, 그랜저TG 등</p>
+          </div>
+        </div>
+
+        <!-- Slide 2 (복제) -->
+        <div class="w-72 sm:w-80 flex-shrink-0 bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 hover:border-blue-500/60 transition-all shadow-lg">
+          <div class="relative h-44 bg-slate-800 overflow-hidden">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Car_transporter_in_Korea.jpg?width=800" 
+                 onerror="this.src='https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80'" 
+                 alt="부산항 항만 카캐리어 이동" class="w-full h-full object-cover">
+            <span class="absolute top-3 left-3 bg-emerald-500 text-white text-[11px] font-extrabold px-2.5 py-1 rounded-md shadow">경남 전지역 탁송</span>
+          </div>
+          <div class="p-4">
+            <h3 class="text-amber-400 font-extrabold text-sm">부산항 항만 카캐리어 이동</h3>
+            <p class="text-slate-400 text-xs mt-1">안전한 전용 캐리어 차량 탁송</p>
+          </div>
+        </div>
+
+        <!-- Slide 3 (복제) -->
+        <div class="w-72 sm:w-80 flex-shrink-0 bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 hover:border-blue-500/60 transition-all shadow-lg">
+          <div class="relative h-44 bg-slate-800 overflow-hidden">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kia_Sportage_SL_front_20100911.jpg?width=800" 
+                 onerror="this.src='https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=800&q=80'" 
+                 alt="11년식 이상 스포티지R" class="w-full h-full object-cover">
+            <span class="absolute top-3 left-3 bg-amber-500 text-slate-950 text-[11px] font-extrabold px-2.5 py-1 rounded-md shadow">주력 매입</span>
+          </div>
+          <div class="p-4">
+            <h3 class="text-amber-400 font-extrabold text-sm">11년식 이상 스포티지R</h3>
+            <p class="text-slate-400 text-xs mt-1">중동/아프리카 수출 바이어 선호 1위</p>
+          </div>
+        </div>
+
+        <!-- Slide 4 (복제) -->
+        <div class="w-72 sm:w-80 flex-shrink-0 bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 hover:border-blue-500/60 transition-all shadow-lg">
+          <div class="relative h-44 bg-slate-800 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80" 
+                 alt="선적 대기 전용 야드" class="w-full h-full object-cover">
+            <span class="absolute top-3 left-3 bg-indigo-600 text-white text-[11px] font-extrabold px-2.5 py-1 rounded-md shadow">직수출 항만</span>
+          </div>
+          <div class="p-4">
+            <h3 class="text-amber-400 font-extrabold text-sm">선적 대기 전용 야드</h3>
+            <p class="text-slate-400 text-xs mt-1">중간 마진 없는 다이렉트 해외 수출</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- Difference Section -->
   <section id="why-local" class="py-16 bg-white border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -304,7 +451,7 @@
     </div>
   </section>
 
-  <!-- Real Price Cases (차량 이미지 포함 & 연식/키로수 삭제) -->
+  <!-- Real Price Cases (차종과 일치하는 실제 차량 사진 적용) -->
   <section id="price-cases" class="py-16 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-12">
@@ -315,11 +462,13 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         
-        <!-- Case 1: 스포티지R -->
+        <!-- Case 1: 기아 스포티지 R (실제 스포티지R 사진) -->
         <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 flex flex-col justify-between group hover:shadow-md transition-shadow">
           <div>
-            <div class="relative h-48 overflow-hidden bg-slate-200">
-              <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80" alt="기아 스포티지 R" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="relative h-52 overflow-hidden bg-slate-200">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/2010_Kia_Sportage_(SL)_Si_wagon_(2011-11-18)_01.jpg?width=800" 
+                   onerror="this.src='https://commons.wikimedia.org/wiki/Special:FilePath/Kia_Sportage_SL_front_20100911.jpg?width=800'" 
+                   alt="기아 스포티지 R 실차 사진" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
               <span class="absolute top-3 right-3 text-xs bg-emerald-600 text-white font-bold px-2.5 py-1 rounded-full shadow">당일말소 완료</span>
             </div>
             <div class="p-6 pb-2">
@@ -347,11 +496,13 @@
           </div>
         </div>
 
-        <!-- Case 2: 그랜져TG -->
+        <!-- Case 2: 현대 그랜져 TG (실제 그랜저TG 사진) -->
         <div class="bg-white rounded-2xl overflow-hidden shadow-sm border-2 border-blue-500 flex flex-col justify-between relative group hover:shadow-md transition-shadow">
           <div>
-            <div class="relative h-48 overflow-hidden bg-slate-200">
-              <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80" alt="현대 그랜져 TG" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="relative h-52 overflow-hidden bg-slate-200">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/2006-2008_Hyundai_Grandeur_(TG)_Limited_sedan_01.jpg?width=800" 
+                   onerror="this.src='https://commons.wikimedia.org/wiki/Special:FilePath/Hyundai_Azera_--_09-07-2009.jpg?width=800'" 
+                   alt="현대 그랜져 TG 실차 사진" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
               <span class="absolute top-3 left-3 bg-blue-600 text-white text-[11px] font-black px-2.5 py-1 rounded-full shadow">인기 수출차종</span>
               <span class="absolute top-3 right-3 text-xs bg-emerald-600 text-white font-bold px-2.5 py-1 rounded-full shadow">당일말소 완료</span>
             </div>
@@ -380,11 +531,13 @@
           </div>
         </div>
 
-        <!-- Case 3: 아반떼 HD / MD -->
+        <!-- Case 3: 현대 아반떼 HD / MD (실제 아반떼 사진) -->
         <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 flex flex-col justify-between group hover:shadow-md transition-shadow">
           <div>
-            <div class="relative h-48 overflow-hidden bg-slate-200">
-              <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=800&q=80" alt="현대 아반떼 HD / MD" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="relative h-52 overflow-hidden bg-slate-200">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/2011_Hyundai_Elantra_GLS_--_06-24-2011.jpg?width=800" 
+                   onerror="this.src='https://commons.wikimedia.org/wiki/Special:FilePath/2007-2010_Hyundai_Elantra_(HD)_SLX_sedan_01.jpg?width=800'" 
+                   alt="현대 아반떼 HD / MD 실차 사진" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
               <span class="absolute top-3 right-3 text-xs bg-emerald-600 text-white font-bold px-2.5 py-1 rounded-full shadow">당일말소 완료</span>
             </div>
             <div class="p-6 pb-2">
@@ -416,7 +569,7 @@
     </div>
   </section>
 
-  <!-- Target Vehicles (차량 이미지 카드 포함 & 연식/키로수 언급 삭제) -->
+  <!-- Target Vehicles (차종 이름과 1:1 매칭된 실제 차량 이미지 적용) -->
   <section id="target-vehicles" class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-12">
@@ -426,9 +579,13 @@
       </div>
 
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+        
+        <!-- 1. 기아 SUV: 스포티지 R / 뉴스포티지 -->
         <div class="rounded-xl border border-slate-200 hover:border-blue-500 transition-all bg-slate-50/50 overflow-hidden group shadow-sm">
-          <div class="h-32 bg-slate-200 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=600&q=80" alt="기아 SUV" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          <div class="h-36 bg-slate-200 overflow-hidden">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kia_Sportage_SL_front_20100911.jpg?width=600" 
+                 onerror="this.src='https://commons.wikimedia.org/wiki/Special:FilePath/2010_Kia_Sportage_(SL)_Si_wagon_(2011-11-18)_01.jpg?width=600'" 
+                 alt="기아 스포티지 R" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
           </div>
           <div class="p-4">
             <div class="text-blue-600 font-black text-xs">기아 SUV</div>
@@ -437,9 +594,12 @@
           </div>
         </div>
 
+        <!-- 2. 현대 대형/중형: 그랜져 TG / HG -->
         <div class="rounded-xl border border-slate-200 hover:border-blue-500 transition-all bg-slate-50/50 overflow-hidden group shadow-sm">
-          <div class="h-32 bg-slate-200 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=600&q=80" alt="현대 대형/중형" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          <div class="h-36 bg-slate-200 overflow-hidden">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hyundai_Azera_--_09-07-2009.jpg?width=600" 
+                 onerror="this.src='https://commons.wikimedia.org/wiki/Special:FilePath/2012_Hyundai_Azera_--_NHTSA_1.jpg?width=600'" 
+                 alt="현대 그랜져 TG / HG" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
           </div>
           <div class="p-4">
             <div class="text-blue-600 font-black text-xs">현대 대형/중형</div>
@@ -448,9 +608,12 @@
           </div>
         </div>
 
+        <!-- 3. 현대 준중형: 아반떼 HD / MD / XD -->
         <div class="rounded-xl border border-slate-200 hover:border-blue-500 transition-all bg-slate-50/50 overflow-hidden group shadow-sm">
-          <div class="h-32 bg-slate-200 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=600&q=80" alt="현대 준중형" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          <div class="h-36 bg-slate-200 overflow-hidden">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/2011_Hyundai_Elantra_GLS_--_06-24-2011.jpg?width=600" 
+                 onerror="this.src='https://commons.wikimedia.org/wiki/Special:FilePath/Hyundai_Elantra_HD_front_20081128.jpg?width=600'" 
+                 alt="현대 아반떼 HD / MD" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
           </div>
           <div class="p-4">
             <div class="text-blue-600 font-black text-xs">현대 준중형</div>
@@ -459,9 +622,12 @@
           </div>
         </div>
 
+        <!-- 4. 현대 SUV: 투싼 ix / 싼타페 CM·DM -->
         <div class="rounded-xl border border-slate-200 hover:border-blue-500 transition-all bg-slate-50/50 overflow-hidden group shadow-sm">
-          <div class="h-32 bg-slate-200 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80" alt="현대 SUV" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          <div class="h-36 bg-slate-200 overflow-hidden">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hyundai_ix35_front_20100515.jpg?width=600" 
+                 onerror="this.src='https://commons.wikimedia.org/wiki/Special:FilePath/2010_Hyundai_Tucson_GLS_--_05-05-2011.jpg?width=600'" 
+                 alt="현대 투싼 ix / 싼타페" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
           </div>
           <div class="p-4">
             <div class="text-blue-600 font-black text-xs">현대 SUV</div>
@@ -470,9 +636,12 @@
           </div>
         </div>
 
+        <!-- 5. 기아 준중형/중형: 포르테 / K3 / K5 -->
         <div class="rounded-xl border border-slate-200 hover:border-blue-500 transition-all bg-slate-50/50 overflow-hidden group shadow-sm">
-          <div class="h-32 bg-slate-200 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=600&q=80" alt="기아 준중형/중형" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          <div class="h-36 bg-slate-200 overflow-hidden">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/2011_Kia_Optima_EX_--_03-23-2011.jpg?width=600" 
+                 onerror="this.src='https://commons.wikimedia.org/wiki/Special:FilePath/2010_Kia_Forte_EX_--_NHTSA_2.jpg?width=600'" 
+                 alt="기아 포르테 / K3 / K5" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
           </div>
           <div class="p-4">
             <div class="text-blue-600 font-black text-xs">기아 준중형/중형</div>
@@ -481,9 +650,12 @@
           </div>
         </div>
 
+        <!-- 6. 승합 / 화물: 스타렉스 / 포터2 / 봉고3 -->
         <div class="rounded-xl border border-slate-200 hover:border-blue-500 transition-all bg-slate-50/50 overflow-hidden group shadow-sm">
-          <div class="h-32 bg-slate-200 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=600&q=80" alt="승합 / 화물" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          <div class="h-36 bg-slate-200 overflow-hidden">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hyundai_H-1_front_20080829.jpg?width=600" 
+                 onerror="this.src='https://commons.wikimedia.org/wiki/Special:FilePath/2008_Hyundai_iLoad_(TQ)_van_01.jpg?width=600'" 
+                 alt="현대 스타렉스 / 포터2 / 봉고3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
           </div>
           <div class="p-4">
             <div class="text-blue-600 font-black text-xs">승합 / 화물</div>
@@ -492,9 +664,12 @@
           </div>
         </div>
 
+        <!-- 7. 소형 / 경차: 모닝 / 프라이드 / 베르나 -->
         <div class="rounded-xl border border-slate-200 hover:border-blue-500 transition-all bg-slate-50/50 overflow-hidden group shadow-sm">
-          <div class="h-32 bg-slate-200 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=600&q=80" alt="소형 / 경차" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          <div class="h-36 bg-slate-200 overflow-hidden">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kia_Picanto_front_20110521.jpg?width=600" 
+                 onerror="this.src='https://commons.wikimedia.org/wiki/Special:FilePath/2012_Kia_Rio_(UB)_Si_5-door_hatchback_(2015-07-14)_01.jpg?width=600'" 
+                 alt="기아 모닝 / 프라이드" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
           </div>
           <div class="p-4">
             <div class="text-blue-600 font-black text-xs">소형 / 경차</div>
@@ -503,9 +678,12 @@
           </div>
         </div>
 
+        <!-- 8. 기타 차종: SM3 / SM5 / 라세티 -->
         <div class="rounded-xl border border-slate-200 hover:border-blue-500 transition-all bg-slate-50/50 overflow-hidden group shadow-sm">
-          <div class="h-32 bg-slate-200 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=600&q=80" alt="기타 차종" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          <div class="h-36 bg-slate-200 overflow-hidden">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Renault_Fluence_front_20100515.jpg?width=600" 
+                 onerror="this.src='https://commons.wikimedia.org/wiki/Special:FilePath/Renault_Latitude_front_20110326.jpg?width=600'" 
+                 alt="르노삼성 SM3 / SM5" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
           </div>
           <div class="p-4">
             <div class="text-blue-600 font-black text-xs">기타 차종</div>
@@ -513,6 +691,7 @@
             <div class="text-xs text-slate-500 mt-1">전화로 1분 만에 시세 확인</div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
